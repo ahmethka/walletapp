@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { use } from 'react';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -10,9 +10,10 @@ import { useAuth, type AuthState } from '../store/useAuth';
 import { useTheme } from '../store/useTheme';
 import { ProfileSheetProvider } from '../components/sheets/ProfileSheetContext';
 import TabNavigator from './TabNavigator';
+import OtpScreen from '../screens/OtpScreen';
 
 type RootStackParamList = { App: undefined; AuthStack: undefined };
-type AuthStackParamList = { Login: undefined; Register: undefined };
+type AuthStackParamList = { Login: undefined; Register: undefined , Otp:undefined };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 const AuthStack = createNativeStackNavigator<AuthStackParamList>();
@@ -44,6 +45,7 @@ function AuthStackNavigator() {
     <AuthStack.Navigator screenOptions={{ headerShown: false }}>
       <AuthStack.Screen name="Login" component={LoginScreen} />
       <AuthStack.Screen name="Register" component={RegisterScreen} />
+      <AuthStack.Screen name="Otp" component={OtpScreen} />
     </AuthStack.Navigator>
   );
 }
@@ -51,6 +53,7 @@ function AuthStackNavigator() {
 export default function RootNavigator() {
   const isHydrated = useAuth((s: AuthState) => s.isHydrated);
   const token = useAuth((s: AuthState) => s.token);
+  const isLogin = useAuth((s: AuthState) => s.otpVerified)
   const mode = useTheme(s => s.mode);
 
   if (!isHydrated) return null;
@@ -59,8 +62,8 @@ export default function RootNavigator() {
     <NavigationContainer theme={mode === 'light' ? MyLight : MyDark}>
       <ProfileSheetProvider>
         <RootStack.Navigator screenOptions={{ headerShown: false }}>
-          {token ? (
-            <RootStack.Screen name="App" component={AppNavigator} />
+          {isLogin ? (
+            <RootStack.Screen name="App" component={TabNavigator} />
           ) : (
             <RootStack.Screen name="AuthStack" component={AuthStackNavigator} />
           )}

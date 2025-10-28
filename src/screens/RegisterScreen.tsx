@@ -40,47 +40,49 @@ export default function RegisterScreen() {
             Doğrulamak için telefon numaranı gir. Doğrulama kodu sana SMS olarak gelecek
           </Text>
         </View>
+        <View style={{marginTop:15}}>
+          <Text style={{ color: tokens.colors.muted }}>E-posta</Text>
+          <TextInput
+            value={email}
+            onChangeText={setEmail}
+            placeholder="user@example.com"
+            placeholderTextColor={tokens.colors.muted}
+            style={{
+              backgroundColor: tokens.colors.card,
+              color: tokens.colors.text,
+              borderColor: tokens.colors.line,
+              borderWidth: 1,
+              borderRadius: tokens.radii.lg,
+              padding: tokens.spacing.md,
+            }}
+            autoCapitalize="none"
+            keyboardType="email-address"
+            textContentType="username"
+          />
+        </View>
+        <View style={{marginTop:15}}>
+          <Text style={{ color: tokens.colors.muted }}>PIN (4–6 hane)</Text>
+          <TextInput
+            value={pin}
+            onChangeText={setPin}
+            placeholderTextColor={tokens.colors.muted}
+            style={{
+              backgroundColor: tokens.colors.card,
+              color: tokens.colors.text,
+              borderColor: tokens.colors.line,
+              borderWidth: 1,
+              borderRadius: tokens.radii.lg,
+              padding: tokens.spacing.md,
+            }}
+            autoCapitalize="none"
+            secureTextEntry
+            keyboardType="numeric"
+            maxLength={6}
+            textContentType="oneTimeCode"
+          />
+        </View>
 
-        <Text style={{ color: tokens.colors.muted }}>E-posta</Text>
-        <TextInput
-          value={email}
-          onChangeText={setEmail}
-          placeholder="user@example.com"
-          placeholderTextColor={tokens.colors.muted}
-          style={{
-            backgroundColor: tokens.colors.card,
-            color: tokens.colors.text,
-            borderColor: tokens.colors.line,
-            borderWidth: 1,
-            borderRadius: tokens.radii.lg,
-            padding: tokens.spacing.md,
-          }}
-          autoCapitalize="none"
-          keyboardType="email-address"
-          textContentType="username"
-        />
-
-        <Text style={{ color: tokens.colors.muted }}>PIN (4–6 hane)</Text>
-        <TextInput
-          value={pin}
-          onChangeText={setPin}
-          placeholderTextColor={tokens.colors.muted}
-          style={{
-            backgroundColor: tokens.colors.card,
-            color: tokens.colors.text,
-            borderColor: tokens.colors.line,
-            borderWidth: 1,
-            borderRadius: tokens.radii.lg,
-            padding: tokens.spacing.md,
-          }}
-          autoCapitalize="none"
-          secureTextEntry
-          keyboardType="numeric"
-          maxLength={6}
-          textContentType="oneTimeCode"
-        />
-
-        <Button title="Kayıt Ol" onPress={onRegister} loading={loading} />
+        <Button style={{marginTop:15}} title="Kayıt Ol" onPress={onRegister} loading={loading} />
 
         <View style={{ alignItems: 'center', marginTop: 8 }}>
           <Pressable onPress={() => navigation.navigate('Login')}>

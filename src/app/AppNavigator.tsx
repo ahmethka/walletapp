@@ -18,14 +18,13 @@ export default function AppNavigator() {
     <ProfileSheetProvider>
       <Stack.Navigator
         screenOptions={{
+          headerShown: true,
           headerStyle: { backgroundColor: '#ffffff' },
           headerTitleStyle: { color: '#000' },
           headerTintColor: '#000',
           headerTitleAlign: 'center',
           headerLeft: () => <HeaderLeftProfile />,
           headerRight: () => <HeaderRightActions />,
-          //headerr: { paddingLeft: 8 },    // hizalama
-          //headerRightContainerStyle: { paddingRight: 12 }, // hizalama
         }}
       >
         <Stack.Screen name="Tabs" component={TabNavigator} options={{ headerShown: false }} />
@@ -36,7 +35,6 @@ export default function AppNavigator() {
         <Stack.Screen name="PinSettings" component={PinSettingsScreen} options={{ title: 'PIN Ayarları' }} />
         <Stack.Screen name="Support" component={SupportScreen} options={{ title: 'Destek' }} />
         <Stack.Screen name="Settings" component={SettingsScreen} options={{ title: 'Ayarlar' }} />
-
       </Stack.Navigator>
     </ProfileSheetProvider>
   );

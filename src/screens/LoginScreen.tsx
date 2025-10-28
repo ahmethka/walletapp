@@ -55,13 +55,15 @@ export default function LoginScreen() {
         id: res?.id
       };
       await AsyncStorage.setItem('profile', JSON.stringify(nextProfile));
-
-      toast.show(`Hoş geldin${nextProfile?.name ? `, ${nextProfile.name}` : ''}!`, 'success');
+      //toast.show(`Hoş geldin${nextProfile?.name ? `, ${nextProfile.name}` : ''}!`, 'success');
+      
 
     } catch (e: any) {
       Alert.alert('Giriş başarısız', e?.response?.data?.message || e?.message || 'Bilinmeyen hata');
     } finally {
       setLoading(false);
+      console.log("finallye geldik bakalım")
+      navigation.navigate('Otp')
     }
   };
 
@@ -170,7 +172,7 @@ export default function LoginScreen() {
                 />
               )}
             />
-
+            {/* <Button style={{marginTop:20}} title="Giriş Yap" onPress={() => navigation.navigate('Otp')} loading={loading} /> */}
             <Button style={{marginTop:20}} title="Giriş Yap" onPress={handleSubmit(onSubmit)} loading={loading} />
           </View>
         </View>
