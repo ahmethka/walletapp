@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { View, TextInput, KeyboardAvoidingView, Platform, Text, Alert, Pressable } from 'react-native';
+import { View, TextInput, KeyboardAvoidingView, Platform, Text, Alert, Pressable, Image } from 'react-native';
 import Button from '../components/ui/Button';
 import { tokens } from '../../theme/tokens';
 import { useNavigation } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function RegisterScreen() {
   const [email, setEmail] = useState('');
@@ -20,13 +21,25 @@ export default function RegisterScreen() {
     }
   };
 
+  const logoSrc = require('../../assets/piggybank_logo.png');
   return (
     <KeyboardAvoidingView
-      style={{ flex: 1, backgroundColor: tokens.colors.bg, padding: tokens.spacing.lg }}
+      style={{ flex: 1, backgroundColor: tokens.colors.bg }}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
     >
-      <View style={{ gap: 16, marginTop: 48 }}>
-        <Text style={{ fontSize: 24, fontWeight: '700', color: tokens.colors.text }}>Kayıt Ol</Text>
+      <SafeAreaView style={{ flex: 2, paddingHorizontal: tokens.spacing.lg, paddingTop: tokens.spacing.xl }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: tokens.spacing.lg }}>
+          <Image source={logoSrc} style={{ width: 400, height: 80, borderRadius: 8 }} />
+        </View>
+
+        <View style={{ alignItems: 'center', marginBottom: tokens.spacing.lg }}>
+          <Text style={{ fontSize: 18, fontWeight: '600', color: tokens.colors.text, marginLeft: 10 }}>
+            Haydi Başlayalım!
+          </Text>
+          <Text style={{ textAlign: 'center', fontSize: 14, fontWeight: '300', color: tokens.colors.text, marginLeft: 10, paddingTop: 10 }}>
+            Doğrulamak için telefon numaranı gir. Doğrulama kodu sana SMS olarak gelecek
+          </Text>
+        </View>
 
         <Text style={{ color: tokens.colors.muted }}>E-posta</Text>
         <TextInput
@@ -68,14 +81,15 @@ export default function RegisterScreen() {
         />
 
         <Button title="Kayıt Ol" onPress={onRegister} loading={loading} />
-      </View>
-              <View style={{ alignItems: 'center', marginTop: 8 }}>
-                <Pressable onPress={() => navigation.navigate('Login')}>
-                  <Text style={{ color: tokens.colors.accent, fontWeight: '600', textDecorationLine: 'underline' }}>
-                    Zaten bir hesabın var mı ? Giriş
-                  </Text>
-                </Pressable>
-              </View>
+
+        <View style={{ alignItems: 'center', marginTop: 8 }}>
+          <Pressable onPress={() => navigation.navigate('Login')}>
+            <Text style={{ color: tokens.colors.accent, fontWeight: '600', textDecorationLine: 'underline' }}>
+              Zaten bir hesabın var mı ? Giriş
+            </Text>
+          </Pressable>
+        </View>
+      </SafeAreaView>
     </KeyboardAvoidingView>
   );
 }

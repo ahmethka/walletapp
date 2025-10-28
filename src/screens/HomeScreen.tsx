@@ -9,6 +9,7 @@ import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
 import { tokens } from '../../theme/tokens';
 import { getBalance, getTransactions } from '../services/wallet';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function HomeScreen() {
   const nav = useNavigation<any>();
@@ -23,7 +24,7 @@ export default function HomeScreen() {
   });
 
   return (
-    <View style={styles.screen}>
+    <SafeAreaView style={styles.screen}>
       {/* Üst kart */}
       <Card style={styles.topCard}>
         <ThemedText muted>Toplam Bakiye</ThemedText>
@@ -79,7 +80,7 @@ export default function HomeScreen() {
           )}
         </View>
       </Card>
-    </View>
+    </SafeAreaView>
   );
 }
 
