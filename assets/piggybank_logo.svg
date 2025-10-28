@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="256" viewBox="0 0 1024 256" xmlns="http://www.w3.org/2000/svg">
+  <!-- Colors: black/grey/white -->
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111111"/>
+      <stop offset="100%" stop-color="#2e2e2e"/>
+    </linearGradient>
+  </defs>
+  <!-- Piggy body -->
+  <g transform="translate(48,24)">
+    <ellipse cx="110" cy="100" rx="110" ry="78" fill="url(#g1)" />
+    <!-- ear -->
+    <path d="M175 42 L210 20 L200 60 Z" fill="#2e2e2e"/>
+    <!-- leg -->
+    <rect x="60" y="165" width="20" height="16" fill="#1c1c1c" rx="4"/>
+    <rect x="140" y="165" width="20" height="16" fill="#1c1c1c" rx="4"/>
+    <!-- tail -->
+    <path d="M5 110 C-10 95, -10 125, 5 110 C-5 100, -5 120, 5 110" stroke="#3a3a3a" stroke-width="6" fill="none" />
+    <!-- slot -->
+    <rect x="80" y="58" width="60" height="10" rx="5" fill="#0b0b0c"/>
+    <!-- coin -->
+    <circle cx="110" cy="44" r="16" fill="#d1d5db" stroke="#9ca3af" stroke-width="2"/>
+    <!-- eye -->
+    <circle cx="184" cy="96" r="7" fill="#ffffff"/>
+    <circle cx="184" cy="96" r="3" fill="#111111"/>
+  </g>
+  <!-- Wordmark -->
+  <g transform="translate(340,48)">
+    <text x="0" y="80" font-family="Helvetica, Arial, sans-serif" font-size="96" fill="#111111" font-weight="700">PiggyBank</text>
+    <rect x="0" y="96" width="420" height="8" fill="#e5e7eb" />
+  </g>
+</svg>

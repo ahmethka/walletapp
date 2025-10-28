@@ -3,12 +3,14 @@
     "name": "walletapp",
     "slug": "walletapp",
     "version": "1.0.0",
+    "jsEngine": "jsc",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/piggybank_icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
+    "backgroundColor": "#ffffff",
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/piggybank_splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

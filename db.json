@@ -1,0 +1,96 @@
+{
+  "balance": {
+    "item": {
+      "item": {
+        "item": {
+          "id": 1,
+          "amount": 1250.75,
+          "currency": "TRY"
+        },
+        "amount": 1500.75
+      },
+      "amount": 1750.75
+    },
+    "amount": 2250.75
+  },
+  "transactions": [
+    {
+      "id": "1",
+      "title": "Market Alışverişi",
+      "amount": -150.5,
+      "date": "2025-08-10T11:02:00Z"
+    },
+    {
+      "id": "2",
+      "title": "Para Yükleme",
+      "amount": 500,
+      "date": "2025-08-08T09:15:00Z"
+    },
+    {
+      "id": "6a06",
+      "title": "Para Yükleme",
+      "amount": 250,
+      "date": "2025-08-14T10:46:41.238Z",
+      "note": "Asdfhg"
+    },
+    {
+      "id": "2657",
+      "title": "Para Yükleme",
+      "amount": 250,
+      "date": "2025-08-14T16:49:58.915Z",
+      "note": "Xfgjxgjx"
+    },
+    {
+      "id": "e89d",
+      "title": "Para Yükleme",
+      "amount": 500,
+      "date": "2025-08-14T16:51:27.639Z",
+      "note": "Hvjlvljvljvhljv"
+    }
+  ],
+  "cards": [
+    {
+      "id": "1",
+      "holderName": "DEMO KULLANICI",
+      "brand": "visa",
+      "last4": "1234",
+      "expiry": "12/26",
+      "isDefault": true,
+      "color": "#111827"
+    },
+    {
+      "id": "2",
+      "holderName": "DEMO KULLANICI",
+      "brand": "mastercard",
+      "last4": "5678",
+      "expiry": "07/27",
+      "isDefault": false,
+      "color": "#374151"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "email": "user@example.com",
+      "password": "123456",
+      "username": "kullanici1",
+      "name": "Sinan Sarı DanaGibiLady"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Para yatırma başarılı",
+      "body": "500 ₺ eklendi",
+      "date": "2025-08-13T10:00:00Z",
+      "read": true
+    },
+    {
+      "id": "2",
+      "title": "Transfer gönderildi",
+      "body": "Mehmet'e 250 ₺",
+      "date": "2025-08-12T14:30:00Z",
+      "read": true
+    }
+  ]
+}

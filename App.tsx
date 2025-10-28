@@ -1,20 +1,32 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+
+import RootNavigator from './src/app/RootNavigator';
+import { useTheme } from './src/store/useTheme';
+import { ToastProvider } from './src/components/ui/ToastProvider';
+
+
+const client = new QueryClient();
 
 export default function App() {
+  const mode = useTheme(s => s.mode);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <QueryClientProvider client={client}>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <BottomSheetModalProvider>
+          <ToastProvider>
+            <StatusBar
+              style={mode === 'light' ? 'dark' : 'light'}
+              backgroundColor={mode === 'light' ? '#ffffff' : '#0b0b0c'}
+            />
+            <RootNavigator />
+          </ToastProvider>
+        </BottomSheetModalProvider>
+      </GestureHandlerRootView>
+    </QueryClientProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
