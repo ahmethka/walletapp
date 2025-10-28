@@ -23,7 +23,7 @@ export default function AppNavigator() {
           headerTitleStyle: { color: '#000' },
           headerTintColor: '#000',
           headerTitleAlign: 'center',
-          headerLeft: () => <HeaderLeftProfile />,
+          // headerLeft: () => <HeaderLeftProfile />,
           headerRight: () => <HeaderRightActions />,
         }}
       >

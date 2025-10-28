@@ -17,6 +17,7 @@ export default function TabNavigator() {
     <ProfileSheetProvider>
       <Tab.Navigator
         screenOptions={{
+          headerShown: false,
           tabBarStyle: { backgroundColor: '#ffffff', borderTopColor: '#e5e7eb' },
           tabBarActiveTintColor: '#000000',
           tabBarInactiveTintColor: '#6b7280',

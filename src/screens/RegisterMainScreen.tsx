@@ -5,10 +5,15 @@ import { tokens } from '../../theme/tokens';
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function RegisterScreen() {
-  const [phone, setPhone] = useState('');
+export default function RegisterMainScreen() {
+  const [name, setName] = useState('');
+  const [surName, setSurname] = useState('');
   const [loading, setLoading] = useState(false);
   const navigation = useNavigation<any>();
+
+  const onSubmit = () => {
+
+  }
 
   const logoSrc = require('../../assets/piggybank_logo.png');
   return (
@@ -23,39 +28,22 @@ export default function RegisterScreen() {
 
         <View style={{ alignItems: 'center', marginBottom: tokens.spacing.lg }}>
           <Text style={{ fontSize: 18, fontWeight: '600', color: tokens.colors.text, marginLeft: 10 }}>
-            Haydi Başlayalım!
+            Kişisel Bilgiler
           </Text>
           <Text style={{ textAlign: 'center', fontSize: 14, fontWeight: '300', color: tokens.colors.text, marginLeft: 10, paddingTop: 10 }}>
-            Doğrulamak için telefon numaranı gir. Doğrulama kodu sana SMS olarak gelecek
+            Bilgilerini eksiksiz olarak gir ve zorunlu sözleşmeleri onayla.
           </Text>
         </View>
-        <View style={{marginTop:15}}>
-          <Text style={{ color: tokens.colors.muted }}>Telefon Numarası</Text>
-          <View style={{display:'flex' , flexDirection:'row'}}>
-          <TextInput 
-            value='+90'
-            maxLength={2}
-            style={{
-              backgroundColor: tokens.colors.card,
-              color: tokens.colors.text,
-              borderColor: tokens.colors.line,
-              borderWidth: 1,
-              borderRadius: tokens.radii.lg,
-              padding: tokens.spacing.md,
-              flex:1
-            }}
-            autoCapitalize="none"
-            keyboardType="phone-pad"
-            textContentType="telephoneNumber"
-          />
+
+        <View style={{ gap: 10, marginTop: 60 }}>
+          <Text style={{ color: tokens.colors.muted}}>Ad</Text>
           <TextInput
-            value={phone}
-            onChangeText={setPhone}
-            maxLength={10}
-            placeholder="5XX XXX XXXX"
+            value={name}
+            onChangeText={setName}
+            maxLength={25}
+            placeholder="Ad"
             placeholderTextColor={tokens.colors.muted}
             style={{
-              flex: 4,
               backgroundColor: tokens.colors.card,
               color: tokens.colors.text,
               borderColor: tokens.colors.line,
@@ -64,10 +52,48 @@ export default function RegisterScreen() {
               padding: tokens.spacing.md,
             }}
             autoCapitalize="none"
-            keyboardType="phone-pad"
-            textContentType="telephoneNumber"
+            keyboardType="default"
+            textContentType="name"
           />
-          </View>
+          <Text style={{ color: tokens.colors.muted}}>Soyad</Text>
+          <TextInput
+            value={surName}
+            onChangeText={setSurname}
+            maxLength={25}
+            placeholder="Soyad"
+            placeholderTextColor={tokens.colors.muted}
+            style={{
+              backgroundColor: tokens.colors.card,
+              color: tokens.colors.text,
+              borderColor: tokens.colors.line,
+              borderWidth: 1,
+              borderRadius: tokens.radii.lg,
+              padding: tokens.spacing.md,
+            }}
+            autoCapitalize="none"
+            keyboardType="default"
+            textContentType="givenName"
+          />
+          <Text style={{ color: tokens.colors.muted}}>Davet Kodu (Opsiyonel)</Text>
+          <TextInput
+            value={surName}
+            onChangeText={setSurname}
+            maxLength={25}
+            placeholder="Davet Kodu"
+            placeholderTextColor={tokens.colors.muted}
+            style={{
+              backgroundColor: tokens.colors.card,
+              color: tokens.colors.text,
+              borderColor: tokens.colors.line,
+              borderWidth: 1,
+              borderRadius: tokens.radii.lg,
+              padding: tokens.spacing.md,
+            }}
+            autoCapitalize="none"
+            keyboardType="default"
+            textContentType="none"
+          />
+            <Button style={{ marginTop: 20 }} title="Giriş Yap" onPress={onSubmit} loading={loading} />
         </View>
         {/* <View style={{marginTop:15}}>
           <Text style={{ color: tokens.colors.muted }}>PIN (4–6 hane)</Text>

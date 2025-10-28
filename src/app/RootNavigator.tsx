@@ -11,9 +11,11 @@ import { useTheme } from '../store/useTheme';
 import { ProfileSheetProvider } from '../components/sheets/ProfileSheetContext';
 import TabNavigator from './TabNavigator';
 import OtpScreen from '../screens/OtpScreen';
+import RegisterOtpScreen from '../screens/RegisterOtpScreen';
+import RegisterMainScreen from '../screens/RegisterMainScreen';
 
 type RootStackParamList = { App: undefined; AuthStack: undefined };
-type AuthStackParamList = { Login: undefined; Register: undefined , Otp:undefined };
+type AuthStackParamList = { Login: undefined; Register: undefined , Otp:undefined , RegisterOtp:undefined , RegisterMain:undefined};
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 const AuthStack = createNativeStackNavigator<AuthStackParamList>();
@@ -46,6 +48,8 @@ function AuthStackNavigator() {
       <AuthStack.Screen name="Login" component={LoginScreen} />
       <AuthStack.Screen name="Register" component={RegisterScreen} />
       <AuthStack.Screen name="Otp" component={OtpScreen} />
+      <AuthStack.Screen name="RegisterOtp" component={RegisterOtpScreen} />
+      <AuthStack.Screen name="RegisterMain" component={RegisterMainScreen} />
     </AuthStack.Navigator>
   );
 }

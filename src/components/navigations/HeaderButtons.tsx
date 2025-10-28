@@ -8,20 +8,20 @@ import { getUnreadCount } from '../../services/notifications';
 import { useNavigation } from '@react-navigation/native';
 
 export function HeaderLeftProfile() {
-  const { openProfileSheet } = useProfileSheet();
+  // const { openProfileSheet } = useProfileSheet();
 
-  return (
-    <Pressable
-      onPress={() => {
-        console.log('[header] profile pressed');
-        openProfileSheet(); // sheet aç
-      }}
-      hitSlop={10}
-      style={({ pressed }) => [styles.iconBtn, pressed && { opacity: 0.8 }]}
-    >
-      <Ionicons name="person-circle-outline" size={24} color={tokens.colors.text} />
-    </Pressable>
-  );
+  // return (
+  //   <Pressable
+  //     onPress={() => {
+  //       console.log('[header] profile pressed');
+  //       openProfileSheet(); // sheet aç
+  //     }}
+  //     hitSlop={10}
+  //     style={({ pressed }) => [styles.iconBtn, pressed && { opacity: 0.8 }]}
+  //   >
+  //     <Ionicons name="person-circle-outline" size={24} color={tokens.colors.text} />
+  //   </Pressable>
+  // );
 }
 
 export function HeaderRightActions() {
@@ -30,8 +30,8 @@ export function HeaderRightActions() {
 
   return (
     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-      <Pressable
-        onPress={() => nav.navigate('Notifications')}
+      <Pressable 
+        onPress={() => nav.navigate('Ana Sayfa' , {screen: 'Notifications'})}
         hitSlop={10}
         style={({ pressed }) => [styles.iconBtn, pressed && { opacity: 0.8 }]}
       >

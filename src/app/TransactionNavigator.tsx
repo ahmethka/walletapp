@@ -14,7 +14,7 @@ export default function TransactionsStack() {
         headerTitleStyle: { color: '#000' },
         headerTintColor: '#000',
         headerTitleAlign: 'center',
-        headerLeft: () => <HeaderLeftProfile />,
+        // headerLeft: () => <HeaderLeftProfile />,
         headerRight: () => <HeaderRightActions />,
       }}
     >

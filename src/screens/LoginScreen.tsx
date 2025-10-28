@@ -56,7 +56,7 @@ export default function LoginScreen() {
       };
       await AsyncStorage.setItem('profile', JSON.stringify(nextProfile));
       //toast.show(`Hoş geldin${nextProfile?.name ? `, ${nextProfile.name}` : ''}!`, 'success');
-      
+
 
     } catch (e: any) {
       Alert.alert('Giriş başarısız', e?.response?.data?.message || e?.message || 'Bilinmeyen hata');
@@ -173,14 +173,17 @@ export default function LoginScreen() {
               )}
             />
             {/* <Button style={{marginTop:20}} title="Giriş Yap" onPress={() => navigation.navigate('Otp')} loading={loading} /> */}
-            <Button style={{marginTop:20}} title="Giriş Yap" onPress={handleSubmit(onSubmit)} loading={loading} />
+            <Button style={{ marginTop: 20 }} title="Giriş Yap" onPress={handleSubmit(onSubmit)} loading={loading} />
           </View>
         </View>
 
-        <View style={{ alignItems: 'center', marginTop: 8 }}>
+        <View style={{ alignItems: 'center', marginTop: 8 ,display: profile ? 'none' : 'flex' }}>
+          <Text style={{ color: tokens.colors.accent, fontWeight: '600' }}>
+            Hesabın yok mu?
+          </Text>
           <Pressable onPress={() => navigation.navigate('Register')}>
             <Text style={{ color: tokens.colors.accent, fontWeight: '600', textDecorationLine: 'underline' }}>
-              Hesabın yok mu? Kayıt ol
+              Kayıt ol
             </Text>
           </Pressable>
         </View>
